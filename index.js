@@ -32,6 +32,15 @@ const numbersToWords = {
     70: "seventy",
     80: "eighty",
     90: "ninety",
+    100: "one hundred",
+    200: "two hundred",
+    300: "three hundred",
+    400: "four hundred",
+    500: "five hundred",
+    600: "six hundred",
+    700: "seven hundred",
+    800: "eight hundred",
+    900: "nine hundred",
 };
 
 console.log(Math.floor(figure/1000));
@@ -43,34 +52,54 @@ function convertNumberToWords(figure){
         word.innerHTML = numbersToWords[figure];
         return  numbersToWords[figure];
     }
-    if(figure >20 && figure <= 99){
-        let words = "";
-        words = words + convertNumberToWords(Math.floor(figure/10)*10);
-        console.log(words);
-        words =  words + " " + convertNumberToWords(figure%10);
-        console.log(words);
-        word.innerHTML =words;
-        return words;
-
+    else{
+        if(figure >20 && figure <= 99){
+            let words = "";
+            words = words + convertNumberToWords(Math.floor(figure/10)*10);
+            console.log(words);
+            words =  words + " " + convertNumberToWords(figure%10);
+            console.log(words);
+            word.innerHTML =words;
+            return words;
+    
+        }else{
+            if(figure >99 && figure <=999){
+                let words = "";
+                words = words + convertNumberToWords(Math.floor(figure/100))+ " hundred and";
+                console.log(words);
+                words =  words + " " + convertNumberToWords(figure%100);
+                console.log(words);
+                word.innerHTML =words;
+                return words;
+            }
+            else{
+                if(figure >999 && figure <=9999){
+                    let words = "";
+                    words = words + convertNumberToWords(Math.floor(figure/1000))+ " thousand and";
+                    console.log(words);
+                    words =  words + " " + convertNumberToWords(figure%1000);
+                    console.log(words);
+                    word.innerHTML =words;
+                    return words;
+                }
+                else{
+                    if(figure >9999 && figure <=99999){
+                        let words = "";
+                        words = words + convertNumberToWords(Math.floor(figure/1000))+ " thousand";
+                        console.log(words);
+                        words =  words + " " + convertNumberToWords(figure%1000);
+                        console.log(words);
+                        word.innerHTML =words;
+                        return words;
+                    }
+                }
+            }
+        }
     }
-    if(figure >99 && figure <=999){
-        let words = "";
-        words = words + convertNumberToWords(Math.floor(figure/100))+ " hundred and";
-        console.log(words);
-        words =  words + " " + convertNumberToWords(figure%100);
-        console.log(words);
-        word.innerHTML =words;
-        return words;
-    }
-    if(figure >999 && figure <=9999){
-        let words = "";
-        words = words + convertNumberToWords(Math.floor(figure/1000))+ " thousand";
-        console.log(words);
-        words =  words + " " + convertNumberToWords(figure%1000);
-        console.log(words);
-        word.innerHTML =words;
-        return words;
-    }
+    
+    
+    
+    
 }
 
 convertNumberToWords(figure);
