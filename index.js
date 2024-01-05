@@ -83,7 +83,7 @@ function convertNumberToWords(figure){
                     return words;
                 }
                 else{
-                    if(figure >9999 && figure <=99999){
+                    if(figure >9999 && figure <=999999){
                         let words = "";
                         words = words + convertNumberToWords(Math.floor(figure/1000))+ " thousand";
                         console.log(words);
