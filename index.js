@@ -1,5 +1,4 @@
 const figure = document.getElementById('figure').innerHTML;
-const button = document.getElementById('button');
 const word = document.getElementById('word');
 console.log(figure)
 
