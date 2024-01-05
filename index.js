@@ -34,8 +34,8 @@ const numbersToWords = {
     90: "ninety",
 };
 
-console.log(Math.floor(figure/100));
-console.log(figure%100);
+console.log(Math.floor(figure/1000));
+console.log(figure%1000);
 
 function convertNumberToWords(figure){
     if(figure in numbersToWords){
@@ -60,9 +60,16 @@ function convertNumberToWords(figure){
         words =  words + " " + convertNumberToWords(figure%100);
         console.log(words);
         word.innerHTML =words;
+        return words;
     }
-    if(figure >99 && figure <=999){
-        
+    if(figure >999 && figure <=9999){
+        let words = "";
+        words = words + convertNumberToWords(Math.floor(figure/1000))+ " thousand";
+        console.log(words);
+        words =  words + " " + convertNumberToWords(figure%1000);
+        console.log(words);
+        word.innerHTML =words;
+        return words;
     }
 }
 
